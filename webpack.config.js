@@ -15,12 +15,13 @@ console.log('isDev', isDev)
 // функция изменения названия бандлов для режима Production
 const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
 
-const jsLoaders = () => {
+/*const jsLoaders = () => {
   const loaders = [
     {
       loader: 'babel-loader',
       options: {
-        presets: ['@babel/preset-env']
+        presets: ['@babel/preset-env'],
+        plugins: ['@babel/plugin-proposal-class-properties']
       }
     }
   ]
@@ -30,7 +31,7 @@ const jsLoaders = () => {
   }
 
   return loaders
-}
+}*/
 
 // конфигурация webpack'a
 module.exports = {
@@ -105,7 +106,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-class-properties']
           }
         }
       },
