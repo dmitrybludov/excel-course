@@ -5,6 +5,13 @@ export class Header extends ExcelComponent {
     // для поддержки такой записи уст. пакет @babel/plugin-proposal-class-properties
     static className = 'excel__header'
 
+    constructor($root, options) {
+        super($root, {
+            name: 'Header',
+            ...options
+        });
+    }
+
     toHTML() {
         return `
             <input type="text" class="input" value="Новая таблица">
